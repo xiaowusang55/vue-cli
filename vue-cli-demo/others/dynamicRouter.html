@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <p>
+      <router-link to="/user/foo">/user/foo</router-link>
+      <router-link to="/user/bar">/user/bar</router-link>
+    </p>
+    <router-view></router-view>
+    <glb></glb>
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+  <script>
+    const User = {
+      template: `
+            <div>User {{ $route.params.id }}</div>
+        `
+    }
+
+    const routerddd = new VueRouter({
+      routes: [{
+        path: '/user/:id',
+        component: User
+      }]
+    })
+
+    Vue.component("glb", {
+      template: `
+            <div>
+                <h1>Global Registered</h1>    
+            </div>
+        `
+    })
+
+
+    const app = new Vue({
+      router: routerddd
+    }).$mount('#app')
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+    a:active {
+      color: #000000;
+    }
+    .router-link-exact-active.router-link-active {
+      background-color: green;
+      color: #ffffff;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <h1>Hello App</h1>
+
+    <p>
+      <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to Bar</router-link>
+    </p>
+    <router-view></router-view>
+
+  </div>
+
+
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Foo = {
+      template: '<div>foo</div>',
+      data() {
+        return {
+          msg: 'hahaha from foo'
+        }
+      },
+      computed: {
+        message() {
+          return this.msg;
+        }
+      },
+    };
+    const Bar = {
+      template: '<div>bar</div>'
+    };
+
+    const routes = [{
+        path: '/foo',
+        component: Foo,
+        name: 'name of foo'
+      },
+      {
+        path: '/bar',
+        component: Bar
+      },  
+    ]
+
+
+    const router = new VueRouter({
+      routes: routes,
+    })
+
+
+    const app = new Vue({
+      router
+    }).$mount('#app')
+
+  </script>
+
+
+
+</body>
+
+</html>

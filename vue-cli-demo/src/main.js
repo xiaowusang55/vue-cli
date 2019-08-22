@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 Vue.mixin({
   data() {
     return {
-      msg: 'global registered sdfsfsdf'
+      msg: 'global registered'
     }
   }
 })
