@@ -12,12 +12,10 @@
       text-decoration: none;
       color: #000000;
     }
-
     a:active {
       color: #000000;
     }
-
-    .exact-biubibubiu.biubibubiu {
+    .router-link-exact-active.router-link-active {
       background-color: green;
       color: #ffffff;
     }
@@ -32,12 +30,12 @@
     <h1>Hello App</h1>
 
     <p>
-      <router-link :to="{path: '/foo'}" append tag="li" event="mouseover" exact>Go to Foo</router-link>
-      <router-link to="bar" replace>Go to Bar</router-link>
+      <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to Bar</router-link>
     </p>
     <router-view></router-view>
-    <router-view></router-view>
-    <router-view></router-view>
+    <router-view name="a"></router-view>
+    <router-view name="b"></router-view>
 
   </div>
 
@@ -49,42 +47,41 @@
   <script>
     const Foo = {
       template: '<div>foo</div>',
-      data() {
-        return {
-          msg: 'hahaha from foo'
-        }
-      }
-    }
-
+    };
     const Bar = {
       template: '<div>bar</div>'
     };
+    const Bars = {
+      template: '<div>bars</div>'
+    };
+
 
     const routes = [{
         path: '/foo',
-        component: Foo,
-      },
+        components: {
+          defualt: Foo,
+          a: Bar,
+          b: Bars,
+          
+
+        }
+      }, 
       {
         path: '/bar',
-        component: Bar
-      },
+        component: Bar,
+      }, 
     ]
+
 
 
     const router = new VueRouter({
       routes: routes,
-      linkActiveClass: 'biubibubiu',
-      linkExactActiveClass: 'exact-biubibubiu'
     })
 
 
     const app = new Vue({
       router
     }).$mount('#app')
-
-    console.log(app);
-
-
 
   </script>
 
