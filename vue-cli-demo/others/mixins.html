@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="app">
+        <costum1></costum1>
+        <costum2></costum2>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        let mixin = {
+            data() {
+                return {
+                    msg: "hahaha"
+                }
+            }
+        }
+
+
+        let costum1 = {
+            template: `
+                <div>
+                    <h1>{{ msg }}</h1>
+                </div>
+            `,
+            mixins: [mixin]
+        }
+        let costum2 = {
+            template: `
+                <div>
+                    <h1>{{ msg }}</h1>
+                </div>
+            `,
+            mixins: [mixin]
+        }
+
+        new Vue({
+            el: '.app',
+            components: {
+                costum1,
+                costum2
+            }
+
+        })
+    
+    </script>
+
+
+</body>
+</html>
