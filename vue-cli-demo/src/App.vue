@@ -6,11 +6,13 @@
     <button @click="btnClick">destroy</button>
     <h1>{{ msg }}</h1>
     <router-view v-bind:msg2="msg" />
+    
   </div>
 </template>
 
 <script>
 import mm from "./mixins";
+
 
 export default {
   name: "App",

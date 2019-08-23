@@ -2,6 +2,9 @@
   <div>
     <h1>{{ msg1 }}</h1>
     <MM></MM>
+
+    <hr>
+    <selfcounter></selfcounter>
   </div>
 </template>
 
@@ -9,12 +12,14 @@
 
 import MM from "./test";
 import mm from '../mixins'
+import selfcounter from './VuexBasic'
 
 export default {
   name: "Home",
   props: ['msg1'],
   components: {
-    MM
+    MM,
+    selfcounter
   },
   data() {
     return {
