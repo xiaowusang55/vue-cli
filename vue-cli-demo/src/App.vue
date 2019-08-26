@@ -7,12 +7,13 @@
     <h1>{{ msg }}</h1>
     <router-view v-bind:msg2="msg" />
     
+    <i18now></i18now>
   </div>
 </template>
 
 <script>
 import mm from "./mixins";
-
+import i18now from './components/I18nDemo'
 
 export default {
   name: "App",
@@ -26,6 +27,9 @@ export default {
     btnClick() {
       this.$destroy();
     }
+  },
+  components: {
+    i18now
   }
 };
 </script>
